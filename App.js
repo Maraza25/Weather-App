@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, ImageBackground, StatusBar, Image } from "react-native";
+import backgroundImage from "./assets/sky.png"; // Görseli import ile al
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+        {/* Arka planda göstermek istediğiniz diğer bileşenleri buraya ekleyebilirsiniz */}
+      </ImageBackground>
+      <StatusBar barStyle="light-content" />
+    </>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImage: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    resizeMode: "cover", // Resim boyutunu ayarlar
   },
 });
+
+export default App;
